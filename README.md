@@ -1,83 +1,122 @@
-# Proyecto: Protección de Rutas (Educativo)
+# <img src="https://bignews.ar/wp-content/uploads/2023/05/utn-nacional.jpg" width="200">
+# Trabajo Práctico Integrador – Programación III
 
-## ✍️ Descripción
+![TypeScript](https://img.shields.io/badge/Language-TypeScript-informational?style=flat&logo=typescript&color=3178C6)
+![Vite](https://img.shields.io/badge/Bundler-Vite-informational?style=flat&logo=vite&color=646CFF)
+![localStorage](https://img.shields.io/badge/Storage-localStorage-informational?style=flat&logo=databricks&color=F7DF1E)
 
-Este es un proyecto de demostración creado con fines educativos para ilustrar un mecanismo básico de protección de rutas en el lado del cliente (frontend) utilizando **Vite** y **TypeScript**.
+> Este repositorio contiene el **Examen Parcial** de la materia **Programación III (UTN)**.
+> Incluye una aplicación frontend completa con autenticación, catálogo de productos y carrito de compras.
 
-El objetivo es mostrar cómo se puede restringir el acceso a ciertas páginas según el rol de un usuario (por ejemplo, `ADMIN` o `CLIENT`).
+## 🎥 Video de presentación
+
+> 📹 **Link al video:** https://drive.google.com/drive/folders/1wEev1lRMZnkAVLoG7t_MeIVfGl-2q42l?usp=sharing
 
 ---
 
-## ⚠️ ¡Importante! Nivel de Seguridad
+## 📁 Estructura del proyecto
 
-La protección de rutas implementada en este proyecto **NO ES SEGURA** y no debe utilizarse en un entorno de producción.
+```plaintext
+/
+├── public/
+│   └── assets/
+│       └── img/              # Imágenes de los productos
+├── src/
+│   ├── pages/
+│   │   ├── admin/            # Páginas solo para administradores
+│   │   ├── auth/             # Login y registro
+│   │   ├── client/           # Páginas solo para clientes
+│   │   └── store/
+│   │       ├── home/         # Catálogo de productos
+│   │       └── cart/         # Carrito de compras
+│   ├── data/
+│   │   └── data.ts           # Array de productos y función de categorías
+│   ├── types/
+│   │   ├── productos.ts      # Interfaces Producto y CarritoItem
+│   │   ├── categorias.ts     # Interface Categoria
+│   │   ├── IUser.ts          # Interface IUser
+│   │   └── Rol.ts            # Tipo Rol
+│   └── utils/
+│       ├── auth.ts           # Guard de rutas y logout
+│       ├── localStorage.ts   # Funciones para leer/escribir en localStorage
+│       └── navigate.ts       # Función para redirigir al usuario
+├── main.ts                   # Guard central de rutas
+├── package.json
+└── README.md                 # Este archivo
+```
 
-- **Razón**: La lógica de autenticación se basa en datos guardados en `localStorage` en el navegador del usuario.
-- **Riesgo**: Cualquier usuario con conocimientos técnicos básicos puede abrir las herramientas de desarrollador del navegador para inspeccionar, modificar o eliminar los datos de `localStorage`, obteniendo así acceso no autorizado a rutas protegidas.
+---
 
-Este enfoque es útil únicamente para fines de aprendizaje y para prototipos de bajo riesgo. La seguridad real debe implementarse en el **backend**.
+## ⚙️ Tecnologías utilizadas
+
+- **Lenguaje:** TypeScript
+- **Bundler:** Vite
+- **Almacenamiento:** localStorage
+- **Estilos:** CSS3
+- **Herramientas:** Visual Studio Code / pnpm
 
 ---
 
 ## 🚀 Instalación y Uso
 
-Se recomienda usar `pnpm` como gestor de paquetes para mayor eficiencia en el manejo de dependencias.
-
 ### 1. Instalar pnpm
-
-Si no tienes `pnpm` instalado, puedes hacerlo fácilmente a través de `npm` (que viene con Node.js) ejecutando el siguiente comando en tu terminal:
 
 ```bash
 npm install -g pnpm
 ```
 
-### 2. Instalar Dependencias del Proyecto
-
-Una vez en la carpeta raíz del proyecto, instala las dependencias necesarias con `pnpm`:
+### 2. Instalar dependencias
 
 ```bash
 pnpm install
 ```
 
-### 3. Ejecutar el Proyecto
-
-Para iniciar el servidor de desarrollo de Vite, ejecuta:
+### 3. Ejecutar el proyecto
 
 ```bash
 pnpm dev
 ```
 
-La aplicación estará disponible en la URL que aparezca en la terminal (generalmente `http://localhost:5173`).
+La aplicación estará disponible en `http://localhost:5173`.
 
 ---
 
-## ⚙️ ¿Cómo Funciona la Protección de Rutas?
+## ⚙️ Funcionalidades
 
-El mecanismo es simple y se gestiona desde el código TypeScript en la carpeta `src/utils`:
+### 🔐 Autenticación y Roles
+- Registro de usuarios con email y contraseña
+- Login con verificación de credenciales contra `localStorage`
+- Protección de rutas según el rol del usuario (`admin` o `client`)
+- Cierre de sesión (logout)
 
-1.  **Inicio de Sesión**: Cuando un usuario se "loguea", su información (incluido su rol) se guarda como un string JSON en `localStorage`.
-2.  **Carga de Página Protegida**: Cada vez que se intenta cargar una página protegida (ej. la página de Administrador), se ejecuta un script de verificación (`checkAuhtUser` en `src/utils/auth.ts`).
-3.  **Verificación**: El script comprueba:
-    - Si existe un usuario en `localStorage`. Si no, redirige al login.
-    - Si el rol del usuario guardado coincide con el rol requerido para acceder a esa página. Si no coincide, lo redirige a una página de acceso denegado o a su "home" correspondiente.
-4.  **Cierre de Sesión (Logout)**: Al cerrar sesión, la información del usuario se elimina de `localStorage`.
+### 🛍️ Catálogo de Productos
+- Renderizado dinámico de productos desde un array de datos
+- Búsqueda de productos por nombre en tiempo real
+- Filtrado de productos por categoría
+
+### 🛒 Carrito de Compras
+- Agregar productos al carrito desde el catálogo
+- Visualizar nombre, precio y cantidad de cada producto
+- Sumar y restar unidades de cada producto
+- Eliminar productos del carrito
+- Calcular y mostrar el total de la compra
+- Persistencia del carrito en `localStorage`
 
 ---
 
-## 📁 Estructura del Proyecto
+## 🤝 Integrantes
 
-```
-/
-├── src/
-│   ├── pages/                # Contiene las páginas de la aplicación
-│   │   ├── admin/            # Páginas solo para administradores
-│   │   ├── auth/             # Páginas de autenticación (login, registro)
-│   │   └── client/           # Páginas solo para clientes
-│   ├── types/                # Define las interfaces y tipos (IUser, Rol)
-│   └── utils/                # Lógica reutilizable
-│       ├── auth.ts           # Función principal de verificación de rol y sesión
-│       ├── localStorage.ts   # Funciones para leer/escribir en localStorage
-│       └── navigate.ts       # Función para redirigir al usuario
-├── package.json              # Dependencias y scripts
-└── README.md                 # Este archivo
-```
+| Nombre | Rol / Aporte |
+|--------|--------------|
+| **Leandro Matias Perez** | Desarrollo completo |
+| **Comisión:5** 
+
+---
+
+## 📄 Licencia y uso
+
+Proyecto académico para la **Universidad Tecnológica Nacional**
+Materia: **Programación III**
+Año: **2026**
+
+Este material se distribuye con fines educativos.
