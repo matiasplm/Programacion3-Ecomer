@@ -58,7 +58,34 @@ export const productos: Producto[] = [
     },  
 
     {
-        id: 7,
+        id:7,
+        nombre: "Emapanada de Carne",
+        descripcion: "Empanada de carne por unidad con cebolla y especias",
+        precio: 2000,
+        imagenUrl: "/assets/img/empanada-carne.jpg",
+        categoria: "Empanadas"
+    },
+
+    {
+        id: 8,
+        nombre: "Empanada de Jamon y Queso",
+        descripcion: "Empanada de jamon y queso por unidad",
+        precio: 2500,
+        imagenUrl: "/assets/img/empanada-jyq.jpg",
+        categoria: "Empanadas"
+    },
+
+    {
+        id: 9,
+        nombre: "Empanada de Pollo",
+        descripcion: "Empanada de pollo por unidad con cebolla y especias",
+        precio: 2500,
+        imagenUrl: "/assets/img/empanada-pollo.jpg",
+        categoria: "Empanadas"
+    },
+
+    {
+        id: 10,
         nombre: "COCA COLA",
         descripcion: "Gaseosa de 500ml",
         precio: 2000,
@@ -67,7 +94,7 @@ export const productos: Producto[] = [
     },
 
     {
-        id: 8,
+        id: 11,
         nombre: "PEPSI",
         descripcion: "Gaseosa de 500ml",
         precio: 2000,
@@ -76,7 +103,7 @@ export const productos: Producto[] = [
     },
 
     {
-        id: 9,
+        id: 12,
         nombre: "SPRITE",
         descripcion: "Gaseosa de 500ml",
         precio: 2000,
@@ -85,7 +112,7 @@ export const productos: Producto[] = [
     },
 
     {
-        id: 10,
+        id: 13,
         nombre: "AGUA MINERAL",
         descripcion: "Agua mineral de 500ml",
         precio: 1500,
@@ -94,7 +121,7 @@ export const productos: Producto[] = [
     },
 
     {
-        id: 11,
+        id: 14,
         nombre: "AGUA SABORIZADA",
         descripcion: "Agua saborizada de 500ml",
         precio: 1500,

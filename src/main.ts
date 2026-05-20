@@ -32,7 +32,7 @@ const checkRoute = () => {
 
   // Si es cliente e intenta entrar a /admin/ redirige a su home
     if (user.role === "client" && rutaActual.includes("/admin/")) {
-        navigate("/src/pages/client/home/home.html");
+        navigate("/src/pages/store/home/home.html");
         return;
     }
 
