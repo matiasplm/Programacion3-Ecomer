@@ -1,9 +1,5 @@
 # <img src="https://bignews.ar/wp-content/uploads/2023/05/utn-nacional.jpg" width="200">
-# Trabajo Práctico Integrador – Programación III
-
-![TypeScript](https://img.shields.io/badge/Language-TypeScript-informational?style=flat&logo=typescript&color=3178C6)
-![Vite](https://img.shields.io/badge/Bundler-Vite-informational?style=flat&logo=vite&color=646CFF)
-![localStorage](https://img.shields.io/badge/Storage-localStorage-informational?style=flat&logo=databricks&color=F7DF1E)
+# Examen Parcial I – Programación III
 
 > Este repositorio contiene el **Examen Parcial** de la materia **Programación III (UTN)**.
 > Incluye una aplicación frontend completa con autenticación, catálogo de productos y carrito de compras.
